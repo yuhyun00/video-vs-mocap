@@ -1,0 +1,13 @@
+diff --git a/scripts/offline_app.py b/scripts/offline_app.py
+index 45be5a3..8d6402b 100644
+--- a/scripts/offline_app.py
++++ b/scripts/offline_app.py
+@@ -370,7 +370,7 @@ class OfflineApp:
+ 
+                     if start is not None and end is not None:
+                         start = max(0, start-2)
+-                        end = min(modal_pixels[:, i:i + batch_size, :, :, :].shape[1]-1, end+2)
++                        end = min(modal_pixels[:, i:i + batch_size, :, :, :].shape[1], end+3)  # exclusive bound: keep the last occluded frame
+                         idx_dict[obj_id] = (start, end)
+                         completion_path = ''.join(random.choices('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=4))
+                         completion_image_path = f'{self.OUTPUT_DIR}/completion/{completion_path}/images'

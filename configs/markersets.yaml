@@ -1,0 +1,65 @@
+# Anatomical landmarks used to initialise the marker -> SOMA fit.
+#
+# Each landmark lists label aliases used by common protocols / vendors
+# (Vicon Plug-in Gait, Qualisys CAST/IOR, OptiTrack Biomech, Motion Analysis
+# Helen Hayes, ...). Matching is case-insensitive and ignores "_", "-", "."
+# and spaces. Add aliases here for a new lab; no code change is needed.
+#
+# Only a subset is required (pelvis + knees + ankles + toes is enough for the
+# lower body). Every other labelled marker is attached automatically to the
+# nearest SOMA segment during static calibration, so marker sets with extra or
+# unknown markers still contribute to the fit.
+
+landmarks:
+  # --- pelvis ---
+  L_ASIS: [LASI, L_ASIS, LASIS, L_IAS, LIAS, LeftASIS, L_ASI]
+  R_ASIS: [RASI, R_ASIS, RASIS, R_IAS, RIAS, RightASIS, R_ASI]
+  L_PSIS: [LPSI, L_PSIS, LPSIS, L_IPS, LIPS, LeftPSIS, L_PSI]
+  R_PSIS: [RPSI, R_PSIS, RPSIS, R_IPS, RIPS, RightPSIS, R_PSI]
+  SACRUM: [SACR, SACRUM, S1, SAC, MPSIS]
+  # --- lower limb (lateral / medial pairs) ---
+  L_KNEE_LAT: [LKNE, LKNE_EPL, L_FLE, LLFE, LKNEL, L_KNEE_LAT, L_LKNEE, LLKNE, LFLE]
+  L_KNEE_MED: [LKNE_EPM, LKNEM, L_FME, LMFE, LMKNE, L_KNEE_MED, L_MKNEE, LFME]
+  R_KNEE_LAT: [RKNE, RKNE_EPL, R_FLE, RLFE, RKNEL, R_KNEE_LAT, R_LKNEE, RLKNE, RFLE]
+  R_KNEE_MED: [RKNE_EPM, RKNEM, R_FME, RMFE, RMKNE, R_KNEE_MED, R_MKNEE, RFME]
+  L_ANK_LAT: [LANK, LFIB_MAL, L_FAL, LLMAL, LLM, LLAT_MAL, L_LAT_MAL, LANKL]
+  L_ANK_MED: [LTIB_MAL, LMED, L_TAM, LMMAL, LMM, LMED_MAL, L_MED_MAL, LANKM]
+  R_ANK_LAT: [RANK, RFIB_MAL, R_FAL, RLMAL, RLM, RLAT_MAL, R_LAT_MAL, RANKL]
+  R_ANK_MED: [RTIB_MAL, RMED, R_TAM, RMMAL, RMM, RMED_MAL, R_MED_MAL, RANKM]
+  L_TOE: [LTOE, LTOE2, L_FM2, LMT2, L_TOE, LMH2, LTOE1, L_FM1, LMT1]
+  L_TOE5: [LTOE5, L_FM5, LMT5, LMH5]
+  L_HEEL: [LHEE, L_FCC, LHEEL, LCAL, LHEL]
+  R_TOE: [RTOE, RTOE2, R_FM2, RMT2, R_TOE, RMH2, RTOE1, R_FM1, RMT1]
+  R_TOE5: [RTOE5, R_FM5, RMT5, RMH5]
+  R_HEEL: [RHEE, R_FCC, RHEEL, RCAL, RHEL]
+  # --- upper limb ---
+  L_SHO: [LSHO, L_SAE, LACR, LSHOULDER, L_ACR, LAC]
+  R_SHO: [RSHO, R_SAE, RACR, RSHOULDER, R_ACR, RAC]
+  L_ELB_LAT: [LELB, LARM_EPL, L_HLE, LLEL, LELBL, LLHE, LEPL]
+  L_ELB_MED: [LARM_EPM, LMELB, L_HME, LMEL, LELBM, LMHE, LEPM]
+  R_ELB_LAT: [RELB, RARM_EPL, R_HLE, RLEL, RELBL, RLHE, REPL]
+  R_ELB_MED: [RARM_EPM, RMELB, R_HME, RMEL, RELBM, RMHE, REPM]
+  L_WRIST_A: [LWRA, LWRAS, L_RSP, LRSP, LRS]
+  L_WRIST_B: [LWRB, LWULS, L_USP, LUSP, LUS]
+  R_WRIST_A: [RWRA, RWRAS, R_RSP, RRSP, RRS]
+  R_WRIST_B: [RWRB, RWULS, R_USP, RUSP, RUS]
+  # --- head / trunk ---
+  L_FHEAD: [LFHD, L_HEAD_FRONT, LFH]
+  R_FHEAD: [RFHD, R_HEAD_FRONT, RFH]
+  L_BHEAD: [LBHD, L_HEAD_BACK, LBH]
+  R_BHEAD: [RBHD, R_HEAD_BACK, RBH]
+  C7: [C7, CV7, C_7]
+  CLAV: [CLAV, SJN, IJ, JN, STERNUM_TOP]
+  STRN: [STRN, SXS, PX, XIPHOID, STERNUM]
+  T10: [T10, TV10, T_10, TH10]
+  BACK_OFFSET: [RBAK, LBAK, RBACK, LBACK, R_SCAP, L_SCAP, RSCAP, LSCAP]
+  L_FINGER: [LFIN, LFIN2, L_HM2, LMCP2, LHAND, L_FIN]
+  R_FINGER: [RFIN, RFIN2, R_HM2, RMCP2, RHAND, R_FIN]
+
+# Fixed geometric assumptions used when a medial marker is absent
+# (half joint widths, metres).
+defaults:
+  knee_half_width: 0.050
+  ankle_half_width: 0.035
+  elbow_half_width: 0.032
+  shoulder_drop: 0.045   # acromion marker -> glenohumeral centre, along trunk axis

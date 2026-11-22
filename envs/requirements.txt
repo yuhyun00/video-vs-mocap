@@ -1,0 +1,64 @@
+# Unified environment for every model: Python 3.12 + PyTorch 2.10 (CUDA 12.8).
+# Installed by envs/setup_env.sh. Upstream repos pin older versions
+# (torch 2.5-2.8, transformers 4.57, diffusers 0.29, numpy<2, huggingface_hub<1);
+# they are deliberately overridden here and the few incompatibilities are
+# handled in the adapters / setup script.
+
+# --- shared core (GEM-X is installed editable on top: transformers 5.3, py-soma-x 0.3.3) ---
+onnxruntime-gpu==1.23.2        # CUDA 12 build (newer wheels target CUDA 13)
+ezc3d                          # C3D reader (vendor-neutral mocap format)
+gdown                          # DuoMo Google-Drive assets
+imageio-ffmpeg                 # bundled ffmpeg binary
+gradio>=6
+plotly
+pandas
+matplotlib
+pyyaml
+opencv-python<5               # match GEM-X opencv-python-headless<5 (both provide cv2)
+
+# --- SAM 3D Body / SAM-Body4D / FlowHMR feature extractor ---
+pytorch-lightning
+yacs
+scikit-image
+einops
+timm>=1.0.17
+dill
+rich
+hydra-core
+pyrootutils
+webdataset
+networkx
+roma
+joblib
+loguru
+optree
+fvcore
+iopath
+pycocotools
+braceexpand
+termcolor
+cloudpickle
+psutil
+ftfy
+regex
+diffusers>=0.36              # Diffusion-VAS (SVD pipeline); 0.29 breaks with huggingface_hub>=1
+accelerate
+trimesh
+pyrender                       # imported by SAM 3D Body visualisation modules (rendering itself is not used)
+moge @ git+https://github.com/microsoft/MoGe.git
+
+# --- DuoMo / PromptHMR ---
+smplx
+ultralytics
+lap
+open_clip_torch
+plyfile
+decord2                        # py3.12 wheels of decord (same import name "decord")
+
+# --- FlowHMR ---
+torchdiffeq
+transforms3d
+supervision>=0.25,<0.31
+tabulate
+thop
+flask

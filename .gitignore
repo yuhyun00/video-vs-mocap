@@ -1,0 +1,43 @@
+# Python / environment
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.gradio/
+flagged/
+.ipynb_checkpoints/
+.env
+
+# Model weights (download with scripts/download_weights.py)
+checkpoints/
+
+# Upstream repositories (cloned at pinned commits by envs/setup_env.sh)
+third_party/
+
+# Experiment data: videos and mocap of participants must not be committed
+data/
+
+# Generated results and logs
+outputs/
+logs/
+*.log
+
+# Safety net for files dropped outside the folders above: participant videos and
+# mocap, licence-restricted body models (SMPL/SMPL-X/MHR) and checkpoints
+*.[cC]3[dD]
+*.[mM][pP]4
+*.[mM][oO][vV]
+*.[aA][vV][iI]
+*.[mM][kK][vV]
+*.npz
+*.npy
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

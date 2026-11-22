@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-vs-mocap"
+version = "0.1.0"
+description = "Compare video motion-capture models with marker mocap in a unified SOMA representation"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+include = ["vvm*"]
+
+[tool.ruff]
+line-length = 120
