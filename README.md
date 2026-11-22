@@ -60,7 +60,7 @@ preprocessing.
 ## Installation
 
 ```bash
-git clone <this repository> video-vs-mocap
+git clone https://github.com/yuhyun00/video-vs-mocap.git
 cd video-vs-mocap
 bash envs/setup_env.sh          # creates .venv, clones upstream repos at pinned commits, installs packages
 ```
